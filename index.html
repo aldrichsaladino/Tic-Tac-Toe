@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href=""styles.css>
 </head>
 <body>
-    
+    <h1>Tic Tac Toe</h1>
+    <div class="grid-container"> <!--This grid is to specify the entire 3x3 grid for the tic tac toe-->
+        <!--This is the first 3 on top row -->
+        <div class="grid-box" id="box1"></div>
+        <div class="grid-box" id="box2"></div>
+        <div class="grid-box" id="box3"></div>
+        
+        <!--This is the middle 3 -->
+        <div class="grid-box" id="box4"></div>
+        <div class="grid-box" id="box5"></div>
+        <div class="grid-box" id="box6"></div>
+        
+        <!--This is the bottom 3 -->
+        <div class="grid-box" id="box7"></div>
+        <div class="grid-box" id="box8"></div>
+        <div class="grid-box" id="box9"></div>
+
+        <!--Add a Display for the Turn-->
+        <div id="turn">X's Turn</div>
+
+        <!--Restart Button-->
+        <buttton id="restart">Restart</button>
+    </div>
+    <script src="script.js"></script> <!--This is the script that will be used to make the game work-->
 </body>
 </html>
