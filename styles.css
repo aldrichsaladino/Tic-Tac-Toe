@@ -1,145 +1,156 @@
-/* General styles */
+/* 🔹 Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Apply modern font */
+}
+
+/* 🔹 Page Background */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #FDF0D5; /* Light beige */
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #F5F5DC;
-    color: #4B2E2E;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.container {
+/* 🔹 Header Styling */
+.header-title {
+    font-size: 2.5rem;
+    color: #780000; /* Deep Red */
     text-align: center;
-}
-
-h1 {
     margin-bottom: 20px;
 }
 
-.header-title {
-    font-size: 2em;
+/* 🔹 Full-width Info Section */
+.info-box {
+    width: 100%;
+    max-width: 800px;
+    background-color: #C1121F; /* Crimson Red */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* 🔹 Game Container */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.info-box {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    width: 300px;
-}
-
-/* Tic Tac Toe board styles */
+/* 🔹 Tic Tac Toe Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin: 0 auto;
-    background: #E6D5B8;
-    perspective: 500px; /* 3D effect */
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+    background-color: #003049; /* Dark Blue */
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
+/* 🔹 Game Grid Boxes */
 .grid-box {
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    border: 2px solid #000;
+    width: 120px;
+    height: 120px;
+    background-color: #FDF0D5; /* Light Beige */
+    border: 3px solid #003049;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 2em;
+    justify-content: center;
+    font-size: 2.5rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-/* 3D flip effect when clicked via JS */
-.grid-box {
-    transform-style: preserve-3d;
-    transition: transform 0.3s;
+/* 🔹 Hover effect for interaction */
+.grid-box:hover {
+    background-color: #669BBC; /* Muted Blue */
+    transform: scale(1.05);
 }
 
-.grid-box.flip {
-    transform: rotateX(180deg);
+/* 🔹 Scoreboard & Turn Display */
+.game-display {
+    width: 100%;
+    max-width: 800px;
+    background-color: #003049; /* Dark Blue */
+    color: #FDF0D5;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* 🔹 Scoreboard Section */
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    background-color: #C1121F; /* Crimson Red */
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 🔹 Restart Button */
+#restart {
+    background-color: #780000; /* Deep Red */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+#restart:hover {
+    background-color: #C1121F; /* Crimson Red */
+    transform: scale(1.1);
+}
+
+/* 🔹 Winning Tiles Effect */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px gold; }
+    50% { box-shadow: 0 0 20px orange; }
+    100% { box-shadow: 0 0 30px red; }
+}
+
+.win {
+    animation: glow 1s infinite alternate;
 }
 
 .x-mark, .o-mark {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out;
+    font-size: 3rem;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     position: absolute;
 }
+
+/* When a mark is placed, it will be shown */
 .show {
     opacity: 1;
     visibility: visible;
-}
-
-.grid-box:hover {
-    background-color: #E6C29B;
-    transform: scale(1.05); /* Slight zoom effect */
-}
-.grid-box.placed {
-    animation: pop 0.3s ease-out;
-}
-@keyframes pop {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes glow {
-    0% { 
-        background-color: gold; 
-        box-shadow: 0 0 5px gold, 0 0 10px orange, 0 0 20px red;
-    }
-    50% { 
-        background-color: orange; 
-        box-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 30px red;
-    }
-    100% { 
-        background-color: gold; 
-        box-shadow: 0 0 15px gold, 0 0 30px orange, 0 0 40px red;
-    }
-}
-
-.win {
-    animation: glow 1s infinite alternate ease-in-out;
-    transition: transform 0.5s ease-in-out;
-    transform: scale(1.1); /* Slightly enlarges the winning tiles */
-}
-
-#restart {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #8B4513;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#restart:hover {
-    background-color: #6A2C0F;
-    transform: scale(1.1);
-}
-
-
-/* Game status styles */
-.status {
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-
-.game-display {
-    margin-top: 20px;
-    font-size: 1.2em;
-    background-color: grey;
-    border-radius: 5px;
-    width: 300px;
-    padding: 10px;
-}
-
-#turn {
-    margin-bottom: 10px;
 }

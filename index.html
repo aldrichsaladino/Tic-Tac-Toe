@@ -9,71 +9,75 @@
 <body>
     <h1 class="header-title">Tic Tac Toe</h1>
     <div class="info-box">
-        <p class="info">Welcome to Tic Tac Toe! The rules are simple, the first player to get 3 of their marks in a row wins! You can get 3 in a row horizontally, vertically, or diagonally. Player 1 is X and Player 2 is O. Click on a box to place your mark. Good luck!</p>
+        <h2 class="info-title">Welcome to Tic Tac Toe!</h2>
+        <p class="info">The rules are simple, the first player to get 3 of their marks in a row wins!</p>
+        <p class="info">You can get 3 in a row horizontally, vertically, or diagonally. Player 1 is X and Player 2 is O. Click on a box to place your mark. Good luck!</p>
     </div>
-    <div class="grid-container"> <!--This grid is to specify the entire 3x3 grid for the tic tac toe-->
-        <!--This is the first 3 on top row -->
-        <div class="grid-box" id="box1">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>
+    <div class="game-container">    
+        <div class="grid-container"> <!--This grid is to specify the entire 3x3 grid for the tic tac toe-->
+            <!--This is the first 3 on top row -->
+            <div class="grid-box" id="box1">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>
+            </div>
+            <div class="grid-box" id="box2">            
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>    
+            </div>
+            <div class="grid-box" id="box3">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>    
+            </div>
+            
+            <!--This is the middle 3 -->
+            <div class="grid-box" id="box4">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>    
+            </div>
+            <div class="grid-box" id="box5">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>    
+            </div>
+            <div class="grid-box" id="box6">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>
+            </div>
+            
+            <!--This is the bottom 3 -->
+            <div class="grid-box" id="box7">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark">X</span>
+                <span class="o-mark">O</span>
+            </div>
+            <div class="grid-box" id="box8">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>
+            </div>
+            <div class="grid-box" id="box9">
+                <!--Make it invisible until clicked-->
+                <span class="x-mark hide">X</span>
+                <span class="o-mark hide">O</span>
+            </div>
         </div>
-        <div class="grid-box" id="box2">            
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>    
-        </div>
-        <div class="grid-box" id="box3">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>    
-        </div>
-        
-        <!--This is the middle 3 -->
-        <div class="grid-box" id="box4">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>    
-        </div>
-        <div class="grid-box" id="box5">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>    
-        </div>
-        <div class="grid-box" id="box6">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>
-        </div>
-        
-        <!--This is the bottom 3 -->
-        <div class="grid-box" id="box7">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>
-        </div>
-        <div class="grid-box" id="box8">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>
-        </div>
-        <div class="grid-box" id="box9">
-            <!--Make it invisible until clicked-->
-            <span class="x-mark hide">X</span>
-            <span class="o-mark hide">O</span>
-        </div>
-    </div>
-            <!--Add a Display for the Turn-->
-    <div class="game-display">
-        <p class="player">Player 1: X</p>
-        <p class="player">Player 2: O</p>
-        <div id="turn">X's Turn</div>
-    </div>
-    <div class="scoreboard">
-        <p>Player X: <span id="score-x">0</span></p>
-        <p>Player O: <span id="score-o">0</span></p>
-    </div>    
+                <!--Add a Display for the Turn-->
+        <div class="game-display">
+            <p class="player">Player 1: X</p>
+            <p class="player">Player 2: O</p>
+            <div id="turn">X's Turn</div>
 
+            <div class="scoreboard">
+                <p>Player X: <span id="score-x">0</span></p>
+                <p>Player O: <span id="score-o">0</span></p>
+            </div>    
+        </div>
+    </div>
         <!--Restart Button-->
     <button id="restart">Restart</button>
     <script src="script.js"></script> <!--This is the script that will be used to make the game work-->

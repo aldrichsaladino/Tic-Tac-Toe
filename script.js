@@ -42,30 +42,35 @@ const clickSound = new Audio("click.mp3");
 const winSound = new Audio("win.mp3");
 
 function performMove(index, square) {
-    //prevent overwriting a square by checking if the square is empty
-    if (gameBoard[index] !== "") return; //if not empty, do nothing
+    // Prevent overwriting a square
+    if (gameBoard[index] !== "") return;
 
-    //Store the move in an array
-    gameBoard[index] = currentPlayer;
-    clickSound.play(); //play sound effect when square is clicked
+    gameBoard[index] = currentPlayer; // Store move in gameBoard array
+    clickSound.play(); // Play click sound
 
-    //Reveal and turns the mark
+    // 🔹 Step 1: Hide both marks first (ensures only one appears)
+    square.querySelector(".x-mark").classList.remove("show");
+    square.querySelector(".o-mark").classList.remove("show");
+
+    // 🔹 Step 2: Show the correct mark for the current player
     square.querySelector(`.${currentPlayer.toLowerCase()}-mark`).classList.add("show");
-    square.classList.add("flip");
-    square.style.pointerEvents = "none"; //disables clicking on the square
 
-    let gameOver = checkWinner();
-    //check if the game is won or drawn
+    // 🔹 Step 3: Add flip animation
+    square.classList.add("flip");
+    square.style.pointerEvents = "none"; // Prevents clicking the same square again
+
+    let gameOver = checkWinner(); // Check if game is won
 
     if (gameOver) {
-        winSound.play(); //play sound effect when game is won
+        winSound.play(); // Play win sound
         return;
     }
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X"; //if current player is X, switch to O, else switch to X
-    document.getElementById("turn").textContent = `${currentPlayer}'s turn`;
- 
+    // 🔹 Step 4: Switch turns
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    document.getElementById("turn").textContent = `${currentPlayer}'s Turn`;
 }
+
 
 //Game Logic - Win Conditions
 //Score tracking
