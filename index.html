@@ -12,6 +12,12 @@
         <h2 class="info-title">Welcome to Tic Tac Toe!</h2>
         <p class="info">The rules are simple, the first player to get 3 of their marks in a row wins!</p>
         <p class="info">You can get 3 in a row horizontally, vertically, or diagonally. Player 1 is X and Player 2 is O. Click on a box to place your mark. Good luck!</p>
+        <div class="mode-switch">
+            <label>
+              <input type="checkbox" id="aiToggle">
+              Play Against Computer 🖥️
+            </label>
+          </div>          
     </div>
     <div class="game-container">    
         <div class="grid-container"> <!--This grid is to specify the entire 3x3 grid for the tic tac toe-->
@@ -66,20 +72,23 @@
                 <span class="o-mark hide">O</span>
             </div>
         </div>
-                <!--Add a Display for the Turn-->
-        <div class="game-display">
-            <p class="player">Player 1: X</p>
-            <p class="player">Player 2: O</p>
-            <div id="turn">X's Turn</div>
+        <div class="side-panel">
+            <div class="game-display">
+                <p class="player">Player 1: X</p>
+                <p class="player">Player 2: O</p>
+                <div id="turn">X's Turn</div>
 
-            <div class="scoreboard">
-                <p>Player X: <span id="score-x">0</span></p>
-                <p>Player O: <span id="score-o">0</span></p>
-            </div>    
+                <div class="scoreboard">
+                    <p>Player X: <span id="score-x">0</span></p>
+                    <p>Player O: <span id="score-o">0</span></p>
+                </div>    
+            </div>
+                    <!--Restart Button-->
+            <button id="restart">Restart</button>
         </div>
+                <!--Add a Display for the Turn-->
+
     </div>
-        <!--Restart Button-->
-    <button id="restart">Restart</button>
     <script src="script.js"></script> <!--This is the script that will be used to make the game work-->
 </body>
 </html>

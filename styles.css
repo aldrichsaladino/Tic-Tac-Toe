@@ -44,9 +44,11 @@ body {
 /* 🔹 Game Container */
 .game-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 /* 🔹 Tic Tac Toe Grid */
@@ -109,6 +111,7 @@ body {
     font-weight: bold;
     border-radius: 5px;
     margin-top: 10px;
+    gap: 10px;
 }
 
 /* 🔹 Restart Button */
@@ -153,4 +156,23 @@ body {
 .show {
     opacity: 1;
     visibility: visible;
+}
+
+.mode-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto; /* the auto will center the switch */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #003049;
+    width: 50%;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }

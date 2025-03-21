@@ -4,6 +4,14 @@
 let gameBoard = ["" , "" , "" , "" , "" , "" , "" , "" , ""]; //9 slots, each for a square
 let currentPlayer = "X"; //Player 1 starts first
 
+//AI Mode via button toggle. When selected it will be single player
+let vsAI = false;
+
+document.getElementById("aiToggle").addEventListener("change", (e) => {
+    vsAI = e.target.checked;
+    startGame(); // Optional: restart game when mode changes
+});
+
 //Add event listener to each square
 const squares = document.querySelectorAll(".grid-box");
 squares.forEach((square,index) => {
@@ -28,6 +36,9 @@ function startGame() {
         square.style.pointerEvents = "auto"; //turns clicking on again
     });
 
+    if (vsAI && currentPlayer === "O") {
+        setTimeout(makeAIMove, 500);
+    }
     console.log("Game has started");
 }
 
@@ -69,8 +80,20 @@ function performMove(index, square) {
     // 🔹 Step 4: Switch turns
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     document.getElementById("turn").textContent = `${currentPlayer}'s Turn`;
+
+    // If AI mode is on and it's AI's turn (e.g. AI is O)
+    if (vsAI && currentPlayer === "O") {
+        setTimeout(makeAIMove, 500); // slight delay in the switch to AI. makeAImove will be from a separate function
+    }
 }
 
+function makeAIMove() {
+    let emptySquares = gameBoard.map((square, index) => square === "" ? index : null).filter(x => x !== null); // Get empty squares. Square is empty or null, filter out nulls
+    if (emptySquares.length === 0) return; // No empty squares left
+
+    let randomSquare = emptySquares[Math.floor(Math.random() * emptySquares.length)]; // Pick a random empty square.math.random generates a random number between 0 and 1. multiplying by total array (9) tochoose a random square
+    performMove(randomSquare, squares[randomSquare]); // Perform move on the random square
+}
 
 //Game Logic - Win Conditions
 //Score tracking
