@@ -3,7 +3,7 @@
 A **web-based Tic Tac Toe** game built with **HTML, CSS, and JavaScript**. Play against a friend or challenge an AI opponent! The game features an interactive UI, score tracking, and smooth animations for a fun and seamless experience.  
 
 ## 🚀 Live Demo  
-🔗 **[Play Tic Tac Toe](https://aldrichsaladino.github.io/Tic-Tac-Toe/)** *(Replace with your actual link)*  
+🔗 **[Play Tic Tac Toe](https://aldrichsaladino.github.io/Tic-Tac-Toe/)**
 
 ---
 
